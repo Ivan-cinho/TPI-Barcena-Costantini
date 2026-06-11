@@ -149,7 +149,7 @@ def agregar_pais():
     mostrar_datos(paises)
 
 
-def actualizar_datos():
+def actualizar_datos(): #Revisala si te parece que está acorde a como hiciste agregar_pais
     paises = cargar_datos()
     nombre = input("Ingrese el nombre del país a modificar: ").strip()
     encontrado = False
@@ -179,7 +179,7 @@ def actualizar_datos():
                         p["superficie"] = superficie_validada
                         print("Superficie actualizada")
                         break
-                    
+
             else:
                 print("Opción inválida.")
                 return
@@ -191,7 +191,17 @@ def actualizar_datos():
         print(f"No existe el país '{nombre}'.")
 
 def buscar_pais():
-    print()
+    paises = cargar_datos()
+    nombre = input("Ingrese el nombre del país a buscar: ").strip()
+    encontrado = False
+    print("\n--- RESULTADOS DE LA BÚSQUEDA ---")
+    for p in paises:
+        if nombre.lower() in p["nombre"].lower():
+            print(formatear_datos(p))
+            encontrado = True
+
+    if not encontrado:
+        print(f"No se encontraron países que coincidan con '{nombre}'.")
 
 # Filtros
 def filtrar_por_continente():
@@ -241,9 +251,9 @@ while True:
                 case 2:
                     agregar_pais()
                 case 3:
-                    print("Actualizar datos de poblacion o superficie")
+                    actualizar_datos()
                 case 4:
-                    print("Buscar un pais")
+                    buscar_pais()
                 case 5:
                     print("Filtrar paises")
                 case 6:
