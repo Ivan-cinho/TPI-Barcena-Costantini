@@ -199,20 +199,61 @@ def buscar_pais():
         if nombre.lower() in p["nombre"].lower():
             print(formatear_datos(p))
             encontrado = True
-
     if not encontrado:
         print(f"No se encontraron países que coincidan con '{nombre}'.")
 
 # Filtros
 def filtrar_por_continente():
-    print()
+    paises = cargar_datos()
+    continente = input("Ingrese el continente: ").strip()
+    encontrado = False
+    for p in paises:
+        if p["continente"].lower() == continente.lower():
+            print(formatear_datos(p))
+            encontrado = True
+    if not encontrado:
+        print("No se encontraron paises.")
     
 def filtrar_por_poblacion():
-    print()
-    
+    paises = cargar_datos()
+    minimo = validar_numero_entero(input("Ingrese la población mínima: "))
+    maximo = validar_numero_entero(input("Ingrese la población máxima: "))
+    encontrado = False
+    for p in paises:
+        if minimo <= p["poblacion"] <= maximo:
+            print(formatear_datos(p))
+            encontrado = True
+    if not encontrado:
+        print("No se encontraron paises.")
+
+
 def filtrar_por_superficie():
-    print()
-    
+    paises = cargar_datos()
+    minimo = validar_numero_entero(input("Ingrese la superficie mínima: "))
+    maximo = validar_numero_entero(input("Ingrese la superficie máxima: "))
+    encontrado = False
+    for p in paises:
+        if minimo <= p["superficie"] <= maximo:
+            print(formatear_datos(p))
+            encontrado = True
+    if not encontrado:
+        print("No se encontraron paises.")
+
+def filtros(): #Me pareció pertinente armar otra def para los agrupar los filtros pero lo podemos modificar
+    print("\n--- FILTRAR PAÍSES ---")
+    print("1. Filtrar por continente")
+    print("2. Filtrar por población")
+    print("3. Filtrar por superficie")
+    opcion_filtro = input("Seleccione una opción: ").strip()
+    if opcion_filtro == "1":
+        filtrar_por_continente()
+    elif opcion_filtro == "2":
+        filtrar_por_poblacion()
+    elif opcion_filtro == "3":
+        filtrar_por_superficie()
+    else:
+        print("Opción inválida.")
+
 # Ordenar
 def ordenar_por_nombre():
     print()
@@ -254,8 +295,8 @@ while True:
                     actualizar_datos()
                 case 4:
                     buscar_pais()
-                case 5:
-                    print("Filtrar paises")
+                case 5:      
+                    filtros()
                 case 6:
                     print("Ordenar paises")
                 case 7:
