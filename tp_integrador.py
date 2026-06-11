@@ -150,7 +150,45 @@ def agregar_pais():
 
 
 def actualizar_datos():
-    print()
+    paises = cargar_datos()
+    nombre = input("Ingrese el nombre del país a modificar: ").strip()
+    encontrado = False
+    for p in paises:
+        if p["nombre"].lower() == nombre.lower():
+            encontrado = True
+            print("\nPaís encontrado:")
+            print(formatear_datos(p))
+            print("\n1. Modificar población")
+            print("2. Modificar superficie")
+            opcion = input("Seleccione una opción: ").strip()
+
+            if opcion == "1": #Modificar población
+                while True:
+                    poblacion_str = input("Ingrese la nueva población: ").strip()
+                    poblacion_validada = validar_numero_entero(poblacion_str)
+                    if poblacion_validada is not None:
+                        p["poblacion"] = poblacion_validada
+                        print("Población actualizada")
+                        break
+
+            elif opcion == "2": #Modificar superficie
+                while True:
+                    superficie_str = input("Ingrese la nueva superficie: ").strip()
+                    superficie_validada = validar_numero_entero(superficie_str)
+                    if superficie_validada is not None:
+                        p["superficie"] = superficie_validada
+                        print("Superficie actualizada")
+                        break
+                    
+            else:
+                print("Opción inválida.")
+                return
+            guardar_datos(paises)
+            print("Datos actualizados correctamente.")
+            break
+
+    if not encontrado:
+        print(f"No existe el país '{nombre}'.")
 
 def buscar_pais():
     print()
