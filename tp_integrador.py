@@ -334,17 +334,70 @@ def busqueda():
         print("Opción inválida.")
 
 # mostrar estadisticas
-def mayor_y_menor_poblacion():
-    print()
+def mayor_y_menor_poblacion(): #REVISAR!!
+    paises = cargar_datos()
+    mayor = paises[0]
+    menor = paises[0]
+    for p in paises:
+        if p["poblacion"] > mayor["poblacion"]:
+            mayor = p
+        if p["poblacion"] < menor["poblacion"]:
+            menor = p
+    print("\n--- PAÍS CON MAYOR POBLACIÓN ---")
+    print(formatear_datos(mayor))
+    print("\n--- PAÍS CON MENOR POBLACIÓN ---")
+    print(formatear_datos(menor))
 
 def promedio_de_poblacion():
-    print()
+    paises = cargar_datos()
+    pob_suma = 0
+    for p in paises:
+        pob_suma += p["poblacion"]
+    promedio = pob_suma / len(paises)
+    print("\n--- PROMEDIO DE POBLACIÓN ---")
+    print(f"{promedio:.2f}") #.2f para que de solo dos decimales
 
 def promedio_de_superficie():
-    print()
+    paises = cargar_datos()
+    sup_suma = 0
+    for p in paises:
+        sup_suma += p["superficie"]
+    promedio = sup_suma / len(paises)
+    print("\n--- PROMEDIO DE SUPERFICIE ---")
+    print(f"{promedio:.2f}")
 
 def paises_por_continente():
-    print()
+    paises = cargar_datos()
+    continentes = {}
+    for p in paises:
+        continente = p["continente"]
+        if continente in continentes:
+            continentes[continente] += 1
+        else:
+            continentes[continente] = 1
+    print("\n--- PAÍSES POR CONTINENTE ---")
+    for continente in continentes:
+        print(f"{continente}: {continentes[continente]}")
+
+def estadistica():
+    print("\n--- ESTADÍSTICAS ---")
+    print("1. Mayor y menor población")
+    print("2. Promedio de población")
+    print("3. Promedio de superficie")
+    print("4. Cantidad de países por continente")
+    opcion_estadistica = input("Seleccione una opción: ").strip()
+    if opcion_estadistica == "1":
+        mayor_y_menor_poblacion()
+    elif opcion_estadistica == "2":
+        promedio_de_poblacion()
+    elif opcion_estadistica == "3":
+        promedio_de_superficie()
+    elif opcion_estadistica == "4":
+        paises_por_continente()
+    else:
+        print("Opción inválida.")
+
+#REVISAR estadisticas, ordenar los print 
 
 # PROGRAMA
 while True:
@@ -369,7 +422,7 @@ while True:
                 case 6:
                     busqueda()
                 case 7:
-                    print("Mostrar estadisticas")
+                    estadistica()
                 case 8:
                     print("Finalizar programa")
                     break
