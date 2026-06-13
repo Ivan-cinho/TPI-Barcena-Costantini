@@ -256,13 +256,82 @@ def filtros(): #Me pareció pertinente armar otra def para los agrupar los filtr
 
 # Ordenar
 def ordenar_por_nombre():
-    print()
+    paises = cargar_datos()
+    print("\n1. Ascendente")
+    print("2. Descendente")
+    opcion = input("Seleccione una opción: ").strip()
+    for i in range(len(paises) - 1):
+        for j in range(len(paises) - 1 - i):
+            if opcion == "1":
+                if paises[j]["nombre"] > paises[j + 1]["nombre"]:
+                    pais_temporal = paises[j]
+                    paises[j] = paises[j + 1]
+                    paises[j + 1] = pais_temporal
+            elif opcion == "2":
+                if paises[j]["nombre"] < paises[j + 1]["nombre"]:
+                    pais_temporal = paises[j]
+                    paises[j] = paises[j + 1]
+                    paises[j + 1] = pais_temporal
+    print("\n--- LISTA ORDENADA ---")
+    for p in paises:
+        print(formatear_datos(p))
 
 def ordenar_por_poblacion():
-    print()
+    paises = cargar_datos()
+    print("\n1. Ascendente")
+    print("2. Descendente")
+    opcion = input("Seleccione una opción: ").strip()
+    for i in range(len(paises) - 1):
+        for j in range(len(paises) - 1 - i):
+            if opcion == "1":
+                if paises[j]["poblacion"] > paises[j + 1]["poblacion"]:
+                    pais_temporal = paises[j]
+                    paises[j] = paises[j + 1]
+                    paises[j + 1] = pais_temporal
+            elif opcion == "2":
+                if paises[j]["poblacion"] < paises[j + 1]["poblacion"]:
+                    pais_temporal = paises[j]
+                    paises[j] = paises[j + 1]
+                    paises[j + 1] = pais_temporal
+    print("\n--- LISTA ORDENADA ---")
+    for p in paises:
+        print(formatear_datos(p))
 
 def ordenar_por_superficie():
-    print()
+    paises = cargar_datos()
+    print("\n1. Ascendente")
+    print("2. Descendente")
+    opcion = input("Seleccione una opción: ").strip()
+    for i in range(len(paises) - 1):
+        for j in range(len(paises) - 1 - i):
+            if opcion == "1":
+                if paises[j]["superficie"] > paises[j + 1]["superficie"]:
+                    pais_temporal = paises[j]
+                    paises[j] = paises[j + 1]
+                    paises[j + 1] = pais_temporal
+            elif opcion == "2":
+                if paises[j]["superficie"] < paises[j + 1]["superficie"]:
+                    pais_temporal = paises[j]
+                    paises[j] = paises[j + 1]
+                    paises[j + 1] = pais_temporal
+    print("\n--- LISTA ORDENADA ---")
+    for p in paises:
+        print(formatear_datos(p))
+
+def busqueda():
+    print("\n--- ORDENAR PAÍSES ---")
+    print("1. Ordenar por nombre")
+    print("2. Ordenar por población")
+    print("3. Ordenar por superficie")
+    opcion_orden = input("Seleccione una opción: ").strip()
+    if opcion_orden == "1":
+        ordenar_por_nombre()
+    elif opcion_orden == "2":
+        ordenar_por_poblacion()
+    elif opcion_orden == "3":
+        ordenar_por_superficie()
+    else:
+        print("Opción inválida.")
 
 # mostrar estadisticas
 def mayor_y_menor_poblacion():
@@ -298,7 +367,7 @@ while True:
                 case 5:      
                     filtros()
                 case 6:
-                    print("Ordenar paises")
+                    busqueda()
                 case 7:
                     print("Mostrar estadisticas")
                 case 8:
