@@ -149,7 +149,7 @@ def agregar_pais():
     mostrar_datos(paises)
 
 
-def actualizar_datos(): #Revisala si te parece que está acorde a como hiciste agregar_pais
+def actualizar_datos(): 
     paises = cargar_datos()
     nombre = input("Ingrese el nombre del país a modificar: ").strip()
     encontrado = False
@@ -239,7 +239,7 @@ def filtrar_por_superficie():
     if not encontrado:
         print("No se encontraron paises.")
 
-def filtros(): #Me pareció pertinente armar otra def para los agrupar los filtros pero lo podemos modificar
+def filtros(): 
     print("\n--- FILTRAR PAÍSES ---")
     print("1. Filtrar por continente")
     print("2. Filtrar por población")
@@ -318,7 +318,7 @@ def ordenar_por_superficie():
     for p in paises:
         print(formatear_datos(p))
 
-def busqueda():
+def ordenar():
     print("\n--- ORDENAR PAÍSES ---")
     print("1. Ordenar por nombre")
     print("2. Ordenar por población")
@@ -334,7 +334,7 @@ def busqueda():
         print("Opción inválida.")
 
 # mostrar estadisticas
-def mayor_y_menor_poblacion(): #REVISAR!!
+def mayor_y_menor_poblacion():
     paises = cargar_datos()
     mayor = paises[0]
     menor = paises[0]
@@ -397,7 +397,6 @@ def estadistica():
     else:
         print("Opción inválida.")
 
-#REVISAR estadisticas, ordenar los print 
 
 # PROGRAMA
 while True:
@@ -420,7 +419,7 @@ while True:
                 case 5:      
                     filtros()
                 case 6:
-                    busqueda()
+                    ordenar()
                 case 7:
                     estadistica()
                 case 8:
