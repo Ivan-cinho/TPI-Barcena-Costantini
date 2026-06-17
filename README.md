@@ -34,14 +34,14 @@ Video explicativo	https://www.youtube.com/watch?v=mkYAeAwK4lc
 ---
 
 ## Estructura del Proyecto
-
+```
 TPI-Barcena-Costantini/
 │
 ├── tp_integrador.py # Archivo principal del programa
 ├── paises.csv # Base de datos (archivo CSV)
 ├── README.md # Documentación del proyecto
 └── .gitignore # Archivos ignorados por Git
-
+```
 ---
 
 ## Instrucciones de Ejecución
