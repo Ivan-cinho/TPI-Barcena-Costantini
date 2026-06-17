@@ -34,6 +34,7 @@ Video explicativo	https://www.youtube.com/watch?v=mkYAeAwK4lc
 ---
 
 ## Estructura del Proyecto
+
 TPI-Barcena-Costantini/
 │
 ├── tp_integrador.py # Archivo principal del programa
