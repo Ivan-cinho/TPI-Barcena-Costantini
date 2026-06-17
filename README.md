@@ -27,10 +27,10 @@ El programa permite:
 | Bárcena, Pablo Iván | 8 |
 | Costantini, Luciano | 26 |
 
-## Enlaces
-Recurso			Enlace
-Repositorio GitHub	https://github.com/Ivan-cinho/TPI-Barcena-Costantini
-Video explicativo	https://www.youtube.com/watch?v=mkYAeAwK4lc
+| Recurso | Enlace |
+|---------|--------|
+| **Repositorio GitHub** | [https://github.com/Ivan-cinho/TPI-Barcena-Costantini](https://github.com/Ivan-cinho/TPI-Barcena-Costantini) |
+| **Video explicativo** | [https://www.youtube.com/watch?v=mkYAEaW4lc](https://www.youtube.com/watch?v=mkYAEaW4lc) |
 ---
 
 ## Estructura del Proyecto
