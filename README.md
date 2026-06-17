@@ -2,6 +2,7 @@
 
 ## Descripción del Proyecto
 Sistema desarrollado en Python para la gestión de información de países, permitiendo realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre un conjunto de datos almacenados en un archivo CSV.
+El informe se encuentra en el repositorio bajo el nombre "Barcena Pablo Ivan_Costantini Luciano_TP_Programacion.pdf"
 
 El programa permite:
 - Visualizar el listado completo de países
