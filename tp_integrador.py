@@ -73,12 +73,12 @@ def validar_numero_entero(numero):
     try:
         numero = int(numero)
         if numero <= 0:
-            print("El numero no puede ser menor a cero (0)")
+            print("ERROR - El numero no puede ser menor a cero (0)")
             return None
         else:
             return numero
     except ValueError:
-        print("Debe ingresar un numero")   
+        print("ERROR - Debe ingresar un numero")   
 
 #Funcion para validar que el nombre cumpla con el formato
 def validar_nombre(nombre):
@@ -148,7 +148,7 @@ def agregar_pais():
     print("\n--- LISTA ACTUALIZADA ---")
     mostrar_datos(paises)
 
-
+#Funciones principales
 def actualizar_datos(): 
     paises = cargar_datos()
     nombre = input("Ingrese el nombre del país a modificar: ").strip()
